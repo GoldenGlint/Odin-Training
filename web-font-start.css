@@ -1,0 +1,49 @@
+/* General setup */
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('fonts/RobotoCondensed-Light.woff') format('woff2'),
+        url('fonts/RobotoCondensed-Light.woff2') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('fonts/JosefinSans-Bold.woff2') format('woff2'),
+        url('fonts/JosefinSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+  font-size: 10px;
+  margin: 0;
+  font-family: "Josefin Sans", "Roboto Condensed", sans-serif;
+}
+
+body {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Typography */
+
+h1 {
+  font-size: 3.2rem;
+  font-family: "Josefin Sans";
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-family: "Josefin Sans";
+}
+
+p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  word-spacing: 0.6rem;
+  font-family:"Roboto Condensed";
+}
