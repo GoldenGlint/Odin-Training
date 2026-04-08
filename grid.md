@@ -24,3 +24,8 @@ Gap
     can also use shorthand gap
 
 Positioning Grid Elements:
+Tracks are the sections between the grid lines. Horizontal and Vertical tracks
+
+Lines:
+- grid lines are created implicitly
+- Every track has start line and end line, left to right and top to bottom starting at 1

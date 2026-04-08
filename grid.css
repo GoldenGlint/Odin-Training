@@ -1,4 +1,4 @@
-.container{
+/*.container{
     display: grid;
     grid-template-columns: 50px 50px;
     grid-template-rows: 50px 50px;
@@ -6,9 +6,47 @@
     column-gap: 10px;
     row-gap: 20px;
 
-    /*grid-template: 50px 50px / 50px 50px;*/
+    grid-template: 50px 50px / 50px 50px;
 }
 
 .container>div{
     border: 1px solid blue;
+}*/
+
+.container{
+    display: inline-grid;
+    grid-template: 40px 40px 40px 40px 40px / 40px 40px 40px 40px 40px;
+    background-color: lightblue;
+}
+
+.room{
+    border: 1px solid;
+    font-size: 50%;
+    text-align: center;
+}
+
+#living-room{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+#kitchen{
+    grid-column: 4/6;
+    grid-row: 3/6;
+}
+
+#bedroom{
+    grid-row: 3/5;
+    grid-column: 2/4;
+}
+
+#closet{
+    grid-row: 5/6;
+    grid-column: 2/4;
+}
+
+#bathroom{
+    grid-row: 3/6;
+    grid-column: 1/2;
 }
