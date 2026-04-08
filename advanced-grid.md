@@ -13,4 +13,11 @@ Fractional units (fr): way of distributing whatever eamining space is left in gr
 - there is a min-content before the content in a grid starts overflowing, default min-content is largest unbreakable piece of content inside
 s
 min() and max()
-- 
+- use these to compare the grid row size
+- .grid-container {
+  grid-template-rows: repeat(2, min(200px, 50%));
+  grid-template-columns: repeat(5, max(120px, 15%));
+}
+- the percentages represent the graid's total vertical or horizontal space
+
+Next day Dynamic minimum and maximum sizes
