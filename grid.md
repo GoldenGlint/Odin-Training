@@ -29,3 +29,10 @@ Tracks are the sections between the grid lines. Horizontal and Vertical tracks
 Lines:
 - grid lines are created implicitly
 - Every track has start line and end line, left to right and top to bottom starting at 1
+- Cell shared by a single row track and column track like excel
+- grid-column-start and grid-column-end to position
+- grid-column, and grid-row are shorthand for grid-column-start, grid-column-end
+
+- Grid Area
+    - grid-area is a short hand for grid-row-start / grid-column-start/ grid-row-end / grid-column-end 
+    - it can also refer to visual layout of grid in words. first give each item on grid a name
