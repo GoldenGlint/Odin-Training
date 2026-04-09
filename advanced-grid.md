@@ -44,3 +44,4 @@ auto-fit return highest positive integer without overflowing
 auto-fill vs auto-fit
 - auto-fit will keep grid items at max size
 - auto-fill grid items snap back down to min size once the space is available, even if there is space. 
+auto fill don't grow past minimum space. auto-fit fill
