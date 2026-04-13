@@ -129,4 +129,51 @@ Object.getPrototypeOf(Player.prototype) === Object.prototype; // true
 
 // Output may slightly differ based on the browser
 player1.valueOf(); // Output: Object { name: "steve", marker: "X", sayName: sayName() }
+
 ```
+player1.hasOwnProperty("valueOf"); // false
+Object.prototype.hasOwnProperty("valueOf"); // true
+Object.prototype.hasOwnProperty("hasOwnProperty"); // true
+
+```
+
+object inherits from its [[Prototype]] chain, thus forming a chain
+
+1. Is the `.valueOf` function part of the `player1` object? No it is not
+2. it is not part of the Player.prototype
+3. It is mpart of the prototype of player.prototype
+
+```
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayName = function() {
+  console.log(`Hello, I'm ${this.name}!`);
+};
+
+function Player(name, marker) {
+  this.name = name;
+  this.marker = marker;
+}
+
+Player.prototype.getMarker = function() {
+  console.log(`My marker is "${this.marker}"`);
+};
+
+Object.getPrototypeOf(Player.prototype); // returns Object.prototype
+
+// Now make `Player` objects inherit from `Person`
+Object.setPrototypeOf(Player.prototype, Person.prototype);
+Object.getPrototypeOf(Player.prototype); // returns Person.prototype
+
+const player1 = new Player("steve", "X");
+const player2 = new Player("also steve", "O");
+
+player1.sayName(); // Hello, I'm steve!
+player2.sayName(); // Hello, I'm also steve!
+
+player1.getMarker(); // My marker is "X"
+player2.getMarker(); // My marker is "O"
+```
+
