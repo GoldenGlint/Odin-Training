@@ -102,4 +102,56 @@ const array = [1, 2, 3, 4, 5];
 const [zerothEle, firstEle] = array;
 ```
 
+**Private variable and functions**
+
+where does closure come into this? Factories seem to be returning an object. This is where we can extend out `User` factory to add a few more variables.
+
+```
+function createUser(name) {
+  const discordName = "@" + name;
+
+  let reputation = 0;
+  const getReputation = () => reputation;
+  const giveReputation = () => { reputation++; };
+
+  return { name, discordName, getReputation, giveReputation };
+}
+
+const josh = createUser("josh");
+josh.giveReputation();
+josh.giveReputation();
+
+// logs { discordName: "@josh", reputation: 2 }
+console.log({
+  discordName: josh.discordName,
+  reputation: josh.getReputation()
+});
+```
+
+- containes `reputation` variable, but not mentioned, has one that can get reputation, and one that can add
+- private variable since we cannot add
+- private variable or function uses closures to create smaller, dedicated variables, and functions within factory function
+- In this case, do not need `reputation` variable itself. To avoid foot guns, use `getReputation` and `giveReputation`
+
+**Prototypal inheritance with factories**
+
+```
+function createPlayer(name, level) {
+  const { getReputation, giveReputation } = createUser(name);
+
+  const increaseLevel = () => { level++; };
+  return { name, getReputation, giveReputation, increaseLevel };
+}
+```
+
+call the functions from get user so we can get them and use them, expose all htings we need. 
+createUser(name) is created in the function
+
+```
+return Object.assign({}, user, { increaseLevel });
+```
+
+- means take an empty object, add the things from user in it, and add increaseLevel
+
+
 
