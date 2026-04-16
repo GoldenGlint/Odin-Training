@@ -47,3 +47,59 @@ function makeAddingFunction(firstNumber) {
 **What's wrong with constructors**
 - don't provide automatic safeguards 
 - look like regular functions, even though they don't behave like regular functions, eg can use without `new` keyword
+
+**Factory Functions**
+- levy power of closures, instead of using `new` they set up and return the new object when you call the function. 
+
+```
+function createUser(name) {
+  const discordName = "@" + name;
+  return { name, discordName };
+}
+```
+
+normal function, don't need to call the `new` keyword
+
+```
+const name = "Bob";
+const age = 28;
+const color = "red";
+
+const thatObject = { name: name, age: age, color: color };
+
+```
+
+if we have a variable with the same name as that of the property which we are assigning, we can write it once
+
+```
+const nowFancyObject={name, age, color};
+console.log({ name, age, color });
+```
+
+the log also logs it much cleaner, don't need fancy variables
+
+**Destructuring**
+
+destructing same name as field 
+
+```
+const obj = { a: 1, b: 2 };
+
+// equivalent of doing
+// const a = obj.a;
+// const b = obj.b;
+const { a, b } = obj;
+```
+
+with arrays
+
+```
+const array = [1, 2, 3, 4, 5];
+
+// equivalent of doing
+// const zerothEle = array[0];
+// const firstEle = array[1];
+const [zerothEle, firstEle] = array;
+```
+
+
