@@ -154,4 +154,43 @@ return Object.assign({}, user, { increaseLevel });
 - means take an empty object, add the things from user in it, and add increaseLevel
 
 
+**The module pattern**
+
+IIFEs, sometime you do not need factory produce multiple objects, instead using it to wrap sections of code together
+- easily achievable by wrapping your factory function in parentheses and immediately calling (invoking) it. Immediate function call is commonly referred to as an Immediately invoked function
+
+```
+const calculator = (() => {
+  let lastResult;
+
+  const add = (a, b) => {
+    lastResult = a + b;
+    return lastResult;
+  };
+  const subtract = (a, b) => {
+    lastResult = a - b;
+    return lastResult;
+  };
+  const multiply = (a, b) => {
+    lastResult = a * b;
+    return lastResult;
+  };
+  const divide = (a, b) => {
+    lastResult = a / b;
+    return lastResult;
+  };
+  const getLastResult = () => lastResult;
+
+  return { add, subtract, multiply, divide, getLastResult };
+})();
+```
+
+If we just made it an object literal, it would hhave all things public
+
+**encapsulation**, bundling data, code, or something into a single unit, with selective access to things insade that unit itself 
+
+Why the IIFE, we may only want to purposely invoke it once. Packing code to a module. 
+
+
+
 
