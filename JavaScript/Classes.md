@@ -153,5 +153,137 @@ let john = new User("John", new Date(1992, 6, 1));
 alert( john.birthday ); // birthday is available
 alert( john.age );      // ...as well as the age
 ```
-doesn't store it, recalculates on the spot when yo udo john.age
+doesn't store it, recalculates on the spot when you do john.age
 
+**Class Body**
+
+3 aspects:
+- kind: getter, setter, method or field
+- location: Static or instance
+- Visibility: Public or Private
+
+Add up to 16 combinations
+
+**Constructor**
+
+special method for creating and initializing an object created with a class.
+- can only be one special method with contructor
+- can use super keyword to call constructor with super class
+
+```
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+```
+
+- static block lets you set initial values
+
+**Methods**
+- defined on prototype of each instance shared by all instances
+
+```
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+  // Getter
+  get area() {
+    return this.calcArea();
+  }
+  // Method
+  calcArea() {
+    return this.height * this.width;
+  }
+  *getSides() {
+    yield this.height;
+    yield this.width;
+    yield this.height;
+    yield this.width;
+  }
+}
+
+const square = new Rectangle(10, 10);
+
+console.log(square.area); // 100
+console.log([...square.getSides()]); // [10, 10, 10, 10]
+```
+
+**Static methods and fields**
+- defined on the class itself instead of each instance
+
+**Field Declarations**
+- class field declaration syntax, constructor
+
+**Field Declarations**
+- don't use const to get them. Fields without values set to undefined
+
+```
+class Rectangle {
+  height = 0;
+  width;
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+```
+
+**Private Fields**
+```
+class Rectangle {
+  #height = 0;
+  #width;
+  constructor(height, width) {
+    this.#height = height;
+    this.#width = width;
+  }
+}
+```
+use to declare using `#`
+
+**Inheritance**
+
+- `extends` keyword used in class declarations or class expressions to create a class as a child of another constructor
+
+```
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name) {
+    super(name); // call the super class constructor and pass in the name parameter
+  }
+
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const d = new Dog("Mitzie");
+d.speak(); // Mitzie barks.
+```
+- needs to use `super()` before using `this`
+- `super` keyword can be used to call corresponding methods of super class
+
+**Evaluation Order**
+
+1. extends clause if present is first evaluated, must evaluate to a vlid constructor function or `null`
+2. constructor method is extracted, substituted with `constructor` definition only method definition
+3. the class elements' property keys are evaluated in order of declaration `this` value set to `this` none of the values are evaluated yet
+4. methods accessors installed order of declaration, instance accessors prototype of current class, and static accessors on class itself. Private instance methods accessors saved to instance later
+5. class initialized with prototype specified by `extends` and implimentation specified by `constructor`
+6. class elements evaled order of declaration
+-   instance field intializer expression is saved
+-   static field, intializer evaluated with `this` set to class itself
+7. class fully initialized used as constructor reference
