@@ -37,3 +37,59 @@ if you ran `npm install`, npm would read the `package.json` file and see it need
 - `npm install` grabs the code
 - once we use npm to install any new packages or uninstall any, it will autimatically update our `package.json` file
 
+**Downloading and installing packages locally**
+
+use Node.js require, this is only local, and also `npm install`'s default
+
+Installing an unscoped package
+- Unscoped package always public, meaning they can be searched for, downloaded, installed by anyone
+
+`npm install <package_name>`
+- this will create the `node_modules` directory in current directory, and download the package in that directory
+
+Installing a scoped public package
+- downloaded and installed by anyone
+
+Installing private package
+- only those who have been granted read access to package
+
+Testing package installation
+- confirm `npm install` worked correctly, check `node_modules` directory exists and that it contains directory
+
+**Creating a package.json file**
+
+- lists packages your project depends on
+- specifies versions of package that your project can use
+- makes your build reproducible, easier to share with other devs
+
+Requires name and version fields
+- `name` field contains package name must be lowercase w/o spaces
+- `version` must be in the form `x.x.x`
+
+Author field
+- `"author"` field following format `Your Name <email@example.com> (https://example.com)`
+
+Example
+```
+{
+  "name": "my-awesome-package",
+  "version": "1.0.0",
+  "author": "Your Name <email@example.com> (https://example.com)"
+}
+```
+
+Creating a new `package.json` file- can create one by running CLI questionnaire, or creating defaul `package.json` file
+
+
+Create CLI questionnaire, use `npm init`
+1. navigate to root directory of package
+2. run `npm init`
+3. Answer questoin in ommand line questionnaire
+
+Creating a default `package.json` file
+1. navigate to root directory of package
+2. run `npm init --yes`
+
+
+`devDependencies` are necessary for dev
+`dependencies` necessary for both
