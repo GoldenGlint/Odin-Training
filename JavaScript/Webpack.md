@@ -63,4 +63,6 @@ few key sections:
 -   `path`: path of output directory, in this case `dist`. path to output directory. if it doesn't exist, it creates it but we have `path.resolve`
 -   `clean`: if we include this option and set it to `true`, each time we run Webpack to bundle, empty the output directory first before bundling files into it. Helps us clean `dist` clean
 
-running `npx webpack` created a lot of stuff in the `main.js` file. 
+running `npx webpack` created a lot of stuff in the `main.js` file.
+
+testing
