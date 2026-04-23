@@ -65,4 +65,30 @@ few key sections:
 
 running `npx webpack` created a lot of stuff in the `main.js` file.
 
-testing
+**Handling HTML**
+
+- can use `HtmlWebpackPlugin` to download HTML into that
+- run the following : `npm install --save-dev html-webpack-plugin` to install the app
+- create a `template.html` inside the src. Fill it with the JavaScript file. Don't need to use the script tag because dist will bundle that autimatically with a script tag. Auto add output as script in it. 
+- Inside `webpack.config.js` we can dd the following:
+```
+// webpack.config.js
+import path from "node:path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+
+export default {
+  mode: "development",
+  entry: "./src/index.js",
+  output: {
+    filename: "main.js",
+    path: path.resolve(import.meta.dirname, "dist"),
+    clean: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/template.html",
+    }),
+  ],
+};
+```
+
