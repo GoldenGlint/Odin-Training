@@ -21,7 +21,7 @@ Imporve editor setup and overall productivity. This will make life easier going 
 
 **Formatters**
 
-- similar to linters but take JavaScript code and format to set of rules
+- similar to linters but take JavaScript code and format to set of rules 
 - do not look for style errors, make intelligent decisions about things like space, indentation levels and line-breaks
 - can't configure it much, need to make it dev dependecy for your project
 
