@@ -48,10 +48,7 @@ confirmPassword.addEventListener("input", (event)=>{
     if(confirmPassword.validity.valueMissing){
         confirmPassword.setCustomValidity("Missing Confirm password");
     }
-    else{
-        confirmPassword.setCustomValidity("");
-    }
-    if(confirmPassword.value!=password.value){
+    else if(confirmPassword.value!=password.value){
         confirmPassword.setCustomValidity("Make sure passwords match");
     }
     else{
@@ -73,9 +70,10 @@ const form=document.getElementById("form");
 form.addEventListener("submit", (event)=>{
     if(!form.checkValidity()){
         event.preventDefault();
-        form.setCustomValidity("There are errors in this form");
+        console.log("There are errors in this form");
     }
     else{
+
         console.log("High Five!");
     }
 })
