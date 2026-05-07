@@ -1,4 +1,6 @@
-const url="https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Beijing?key=NABSDAP8N2UTCVX4XJLZKNQRS";
+/*const url="https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Beijing?key=NABSDAP8N2UTCVX4XJLZKNQRS";
 const response=await fetch(url);
 const data=await response.json();
-console.log(data);
+console.log(data);*/
+
+const url="api.giphy.com/v1/gifs/translate?api_key=JGef7lPSX2B4wZcM8IJIzlk8i62BCkq3&s=cats"

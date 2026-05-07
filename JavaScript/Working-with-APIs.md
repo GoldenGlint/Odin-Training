@@ -60,3 +60,5 @@ fetch('https://url.com/some/url')
     // Error :(
   });
 ```
+
+- `.then()` and `.catch()` functions are promises
