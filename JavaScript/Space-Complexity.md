@@ -24,4 +24,52 @@ focus on space complexity and show how same notation can be used for space
 
 #### Measuring space complexity
 
-- same as 
+- same as time complexity, difference is think about memory vs time
+
+O(1) Constant complexity
+
+```
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+```
+
+- no matter the arguments we pass, only a single value is created
+
+O(N) - Linear complexity
+
+- most programs are this way
+- because increase number of items in your data structure, increases the space that DSA occupies in linear way
+
+```
+function sumArr(arr) {
+  const copyArr = arr.slice();
+  let sum = 0;
+  copyArr.forEach((number) => {
+    sum += number;
+  });
+  return sum;
+}
+```
+- sum and copyArr, we then have a forEach
+- space grows linearly 
+
+**Other complexities**
+- a lot of O(N) time and space for data structures
+- many sorting structure have O(1) space complexity
+
+
+**Other considerations**
+
+```
+function sumArr(arr) {
+  let sum = 0;
+  arr.forEach((number) => {
+    sum += number;
+  });
+  return sum;
+}
+```
+
+- things to consider: do we count arr as space? If we do, multiple things that count on it would use it. Otherwise everything would look great on paper. 
